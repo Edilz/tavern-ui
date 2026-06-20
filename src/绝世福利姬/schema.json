@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "粉丝数": {
+      "default": 85000,
+      "type": "number"
+    },
+    "当前场景": {
+      "default": "自宅",
+      "type": "string"
+    },
+    "是否直播中": {
+      "default": false,
+      "type": "boolean"
+    },
+    "当前委托": {
+      "default": {},
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "description": "委托名称"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "金主": {
+            "type": "string"
+          },
+          "内容": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "金主",
+          "内容"
+        ]
+      }
+    }
+  }
+}
