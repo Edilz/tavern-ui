@@ -19,22 +19,20 @@
       "type": "object",
       "propertyNames": {
         "type": "string",
-        "description": "委托名称"
+        "description": "金主名称"
       },
       "additionalProperties": {
         "type": "object",
         "properties": {
           "金主": {
+            "default": "",
             "type": "string"
           },
           "内容": {
+            "default": "",
             "type": "string"
           }
-        },
-        "required": [
-          "金主",
-          "内容"
-        ]
+        }
       }
     }
   }

@@ -14,7 +14,7 @@
         <span class="stat-label">场景</span>
         <span class="stat-value">{{ sceneLabel }}</span>
       </div>
-      <div v-if="store.stat_data.是否直播中" class="stat-item live-item">
+      <div v-if="store.data.是否直播中" class="stat-item live-item">
         <span class="live-dot"></span>
         <span class="stat-value live-text">直播中</span>
       </div>
@@ -23,7 +23,7 @@
     <div v-if="hasCommissions" class="commissions">
       <div class="section-label">委托</div>
       <div
-        v-for="(item, name) in store.stat_data.当前委托"
+        v-for="(item, name) in store.data.当前委托"
         :key="name"
         class="commission-row"
       >
@@ -50,10 +50,10 @@ const sceneMap: Record<string, string> = {
   漫展: '漫展',
 };
 
-const sceneLabel = computed(() => sceneMap[store.stat_data.当前场景] ?? store.stat_data.当前场景);
+const sceneLabel = computed(() => sceneMap[store.data.当前场景] ?? store.data.当前场景);
 
 const formattedFollowers = computed(() => {
-  const n = store.stat_data.粉丝数;
+  const n = store.data.粉丝数;
   if (n >= 10000) {
     return (n / 10000).toFixed(1).replace(/\.0$/, '') + '万';
   }
@@ -61,7 +61,7 @@ const formattedFollowers = computed(() => {
 });
 
 const hasCommissions = computed(() => {
-  return Object.keys(store.stat_data.当前委托).length > 0;
+  return Object.keys(store.data.当前委托).length > 0;
 });
 </script>
 
